@@ -1,0 +1,7 @@
+{
+  "name": "subscription-test",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
