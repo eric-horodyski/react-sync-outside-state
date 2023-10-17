@@ -1,4 +1,5 @@
 import { v4 } from "uuid";
+import { useSyncExternalStore } from "react";
 
 let uuid = v4();
 let listeners: any[] = [];
@@ -25,4 +26,7 @@ setInterval(() => {
   emitChange();
 }, 1000);
 
-export { subscribe, getSnapshot, uuid };
+export const useUUID = () => {
+  const uuid = useSyncExternalStore(subscribe, getSnapshot);
+  return { uuid };
+};
