@@ -21,23 +21,20 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-import UuidProvider from "./UUIDProvider";
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <UuidProvider>
-        <IonRouterOutlet>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-        </IonRouterOutlet>
-      </UuidProvider>
+      <IonRouterOutlet>
+        <Route exact path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/home" />
+        </Route>
+      </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
 );

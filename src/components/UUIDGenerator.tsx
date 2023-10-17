@@ -1,20 +1,15 @@
-import { IonButton } from "@ionic/react";
-import { useUUID } from "../UUIDProvider";
+import { useSyncExternalStore } from "react";
+import { subscribe, getSnapshot } from "../uuidStore";
+
 import "./UUIDGenerator.css";
 
 const UUIDGenerator: React.FC = () => {
-  const { uuid, stop, start } = useUUID();
+  const uuid = useSyncExternalStore(subscribe, getSnapshot);
+
   return (
     <div className="container">
       <strong>Generating your unique identifiers:</strong>
       <p>{uuid}</p>
-      <br />
-      <IonButton color="danger" onClick={stop}>
-        Stop
-      </IonButton>
-      <IonButton color="success" onClick={start}>
-        Start
-      </IonButton>
     </div>
   );
 };
